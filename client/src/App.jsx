@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from './components/Title.jsx';
 import Overview from './components/Overview.jsx';
 import Ratings from './components/Ratings.jsx';
 import Related from './components/Related.jsx';
@@ -83,6 +84,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <Title />
         <Overview
           product_Id={this.state.product_Id}
           handleProductNameChange={this.handleProductNameChange}
