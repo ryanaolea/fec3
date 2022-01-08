@@ -1,0 +1,7 @@
+{
+  "testRegex": "((\\.|/*.)(spec))\\.js?$",
+  "verbose": true,
+  "transform": {
+    "^.+\\.(js|jsx)$": "babel-jest"
+ }
+}

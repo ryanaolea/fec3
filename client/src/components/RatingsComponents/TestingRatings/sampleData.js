@@ -501,4 +501,4 @@ const sampleData = {
 };
 
 export default sampleData;
-export const { reviews, metadata } = sampleData;
+export const { reviews, metadata, product } = sampleData;
