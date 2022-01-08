@@ -10,7 +10,7 @@ class Reviews extends React.Component {
 
     return (
       <div>
-        {this.props.numberOfReviews ? <a href = '#reviews' id = "reviews-overview">Read all {this.props.numberOfReviews} reviews</a> : '' }
+        {this.props.numberOfReviews ? <a href = '#Ratings' id = "reviews-overview">Read all {this.props.numberOfReviews} reviews</a> : '' }
       </div>
     );
   }

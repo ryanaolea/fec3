@@ -1,0 +1,7 @@
+### Ryan Olea [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/kevinzhugao/)](https://www.linkedin.com/in/ryan-o-28378721a/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/kevinzhugao)](https://github.com/ryanaolea)
+
+The Ratings and Reviews Widget provides the user with information on the rating of the current product being displayed as well as accompanying reviews for that product. The user has multiple ways of interacting with this widget. The first is through filtering of the reviews. The user has the option of filtering the reviews shown based on the sidebar star rating system or on the drop down selection. These filters can be applied together and are additive, allowing the user to compare reviews simultaneously and customize the filtering based on their needs.
+
+The main feature of this widget is the ability to add a new Review. This feature takes the user's input through textfields, factor selections, and image inputs, sends that data to two separate apis, using async Axios calls, and ultimately triggers a re-render of the reviews section. This allows for a smooth user interface and a better overall user experience. To implement these features i used a combination of React Hooks, CSS animations, and asynchronous function calls. To optimize this module I made use of state management and compartmentalizing API calls.
+
+![](ratings&reviews.gif)

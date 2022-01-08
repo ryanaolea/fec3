@@ -112,11 +112,11 @@ class QuestionCard extends React.Component {
                     : !this.state.showCollapseBtn
                       ?
                       <>
-                        <button onClick={this.onSeeMoreClick}>See more answers</button>
+                        <button className='QA-card-btn-see' onClick={this.onSeeMoreClick}>See more answers</button>
                       </>
                       :
                       <>
-                        <button onClick={this.onCollapseClick}>Collapse answers</button>
+                        <button className='QA-card-btn-collapse' onClick={this.onCollapseClick}>Collapse answers</button>
                       </>
                 }
               </>

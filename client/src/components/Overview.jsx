@@ -32,7 +32,8 @@ class Overview extends React.Component {
       productDescription: null,
       productSlogan: null,
       salePrice: null,
-      expandedView: null
+      expandedView: null,
+      currentIndex: 0
 
     };
   }
@@ -105,6 +106,221 @@ class Overview extends React.Component {
 
 
   }
+
+  componentWillReceiveProps() {
+    axios.get(`${localhost}/reviews`, { params: { product_id: this.props.product_Id }})
+      .then(res => {
+        this.setState({numberOfReviews: res.data.results.length});
+
+        var sum = 0;
+        res.data.results.forEach(item => {
+          sum += item.rating;
+        });
+        var rating = sum / (res.data.results.length);
+        this.setState({rating: rating});
+      });
+
+    axios.get(`${localhost}/products/${this.props.product_Id}`)
+      .then(res => {
+        this.setState({productName: res.data.name});
+        this.setState({productCategory: res.data.category});
+        this.setState({productDescription: res.data.description});
+        this.setState({productSlogan: res.data.slogan});
+        this.setState({productPrice: res.data.default_price});
+
+      });
+
+    axios.get(`${localhost}/products/${this.props.product_Id}/styles`)
+      .then(res => {
+        // maintain styles API results in state, so that I can use it later in lifecycle
+        this.setState({results: res.data.results});
+        // initialize available sizes of default style
+        var style = res.data.results[0];
+        var styleSkus = style.skus;
+        var sizesArr = [];
+        for (var sku in styleSkus) {
+          if (!sizesArr.includes(styleSkus[sku].size)) {
+            sizesArr.push(styleSkus[sku].size);
+          }
+        }
+        this.setState({sizes: sizesArr});
+        // initialize quantity of default style and selected size
+        var style = res.data.results[0];
+        var styleSkus = style.skus;
+        var quantity = 0;
+        for (var sku in styleSkus) {
+          if (styleSkus[sku].size === this.state.selectedSize) {
+            quantity += styleSkus[sku].quantity;
+          }
+        }
+        this.setState({quantity: quantity});
+        // render thuumbnails and available sizes of default style
+        var urls = [];
+
+        var images = [];
+
+
+        res.data.results.forEach( (style, i) => {
+          urls.push( {url: style.photos[0]['thumbnail_url'], index: i});
+          images.push( style.photos );
+          this.setState({sale_price: style.sale_price});
+        });
+        this.setState({thumbnails: urls}, () => {
+          this.setState({images: images });
+        });
+
+      });
+
+
+  }
+
+
+  // componentDidUpdate(prevProps) {
+  //   // if (this.props.product_Id !== prevProps.product_Id) {
+  //   //   console.log('prevProps', prevProps);
+  //   // }
+  //   // console.log('prevProps', prevProps);
+  //   // console.log('this.props', this.props);
+
+  //   axios.get('http://127.0.0.1:3000/reviews', { params: { product_id: this.props.product_Id }})
+  //     .then(res => {
+  //       this.setState({numberOfReviews: res.data.results.length});
+
+  //       var sum = 0;
+  //       res.data.results.forEach(item => {
+  //         sum += item.rating;
+  //       });
+  //       var rating = sum / (res.data.results.length);
+  //       this.setState({rating: rating});
+  //     });
+
+  //   axios.get(`http://127.0.0.1:3000/products/${this.props.product_Id}`)
+  //     .then(res => {
+  //       this.setState({productName: res.data.name});
+  //       this.setState({productCategory: res.data.category});
+  //       this.setState({productDescription: res.data.description});
+  //       this.setState({productSlogan: res.data.slogan});
+  //       this.setState({productPrice: res.data.default_price});
+
+  //     });
+
+  //   axios.get(`http://127.0.0.1:3000/products/${this.props.product_Id}/styles`)
+  //     .then(res => {
+  //       // maintain styles API results in state, so that I can use it later in lifecycle
+  //       this.setState({results: res.data.results});
+  //       // initialize available sizes of default style
+  //       var style = res.data.results[0];
+  //       var styleSkus = style.skus;
+  //       var sizesArr = [];
+  //       for (var sku in styleSkus) {
+  //         if (!sizesArr.includes(styleSkus[sku].size)) {
+  //           sizesArr.push(styleSkus[sku].size);
+  //         }
+  //       }
+  //       this.setState({sizes: sizesArr});
+  //       // initialize quantity of default style and selected size
+  //       var style = res.data.results[0];
+  //       var styleSkus = style.skus;
+  //       var quantity = 0;
+  //       for (var sku in styleSkus) {
+  //         if (styleSkus[sku].size === this.state.selectedSize) {
+  //           quantity += styleSkus[sku].quantity;
+  //         }
+  //       }
+  //       this.setState({quantity: quantity});
+  //       // render thuumbnails and available sizes of default style
+  //       var urls = [];
+
+  //       var images = [];
+
+
+  //       res.data.results.forEach( (style, i) => {
+  //         urls.push( {url: style.photos[0]['thumbnail_url'], index: i});
+  //         images.push( style.photos );
+  //         this.setState({sale_price: style.sale_price});
+  //       });
+  //       this.setState({thumbnails: urls}, () => {
+  //         this.setState({images: images });
+  //       });
+
+  //     });
+
+  // }
+
+
+
+  // componentDidUpdate() {
+  //   axios.get('http://127.0.0.1:3000/reviews', { params: { product_id: this.props.product_Id }})
+  //     .then(res => {
+  //       this.setState({numberOfReviews: res.data.results.length});
+
+  //       var sum = 0;
+  //       res.data.results.forEach(item => {
+  //         sum += item.rating;
+  //       });
+  //       var rating = sum / (res.data.results.length);
+  //       this.setState({rating: rating});
+  //     });
+
+  //   axios.get(`http://127.0.0.1:3000/products/${this.props.product_Id}`)
+  //     .then(res => {
+  //       this.setState({productName: res.data.name});
+  //       this.setState({productCategory: res.data.category});
+  //       this.setState({productDescription: res.data.description});
+  //       this.setState({productSlogan: res.data.slogan});
+  //       this.setState({productPrice: res.data.default_price});
+
+  //     });
+
+  //   axios.get(`http://127.0.0.1:3000/products/${this.props.product_Id}/styles`)
+  //     .then(res => {
+  //       // maintain styles API results in state, so that I can use it later in lifecycle
+  //       this.setState({results: res.data.results});
+  //       // initialize available sizes of default style
+  //       var style = res.data.results[0];
+  //       var styleSkus = style.skus;
+  //       var sizesArr = [];
+  //       for (var sku in styleSkus) {
+  //         if (!sizesArr.includes(styleSkus[sku].size)) {
+  //           sizesArr.push(styleSkus[sku].size);
+  //         }
+  //       }
+  //       this.setState({sizes: sizesArr});
+  //       // initialize quantity of default style and selected size
+  //       var style = res.data.results[0];
+  //       var styleSkus = style.skus;
+  //       var quantity = 0;
+  //       for (var sku in styleSkus) {
+  //         if (styleSkus[sku].size === this.state.selectedSize) {
+  //           quantity += styleSkus[sku].quantity;
+  //         }
+  //       }
+  //       this.setState({quantity: quantity});
+  //       // render thuumbnails and available sizes of default style
+  //       var urls = [];
+
+  //       var images = [];
+
+
+  //       res.data.results.forEach( (style, i) => {
+  //         urls.push( {url: style.photos[0]['thumbnail_url'], index: i});
+  //         images.push( style.photos );
+  //         this.setState({sale_price: style.sale_price});
+  //       });
+  //       this.setState({thumbnails: urls}, () => {
+  //         this.setState({images: images });
+  //       });
+
+  //     });
+
+
+
+
+  // }
+
+
+
+
 
 
   handleStyleClick(event) {
@@ -196,10 +412,15 @@ class Overview extends React.Component {
     return (
       <div id='Overview'>
 
+        {/* {this.props.product_Id } */}
+
+
+
         <div className = 'overview-container'>
 
           <div className = 'image-gallery-container'>
             <ImageGallery expandedView = {this.state.expandedView}
+              currentIndex = {this.state.currentIndex}
               showExpandedView = {this.showExpandedView.bind(this)}
               length = {this.state.images ? this.state.images[Number(this.state.selectedStyle)].length : ''}
               selectedStyle = {this.state.selectedStyle}
@@ -207,6 +428,7 @@ class Overview extends React.Component {
           </div>
 
           <ExpandedView images = {this.state.images}
+            currentIndex = {this.state.currentIndex}
             handleExpandedImageClose = {this.handleExpandedImageClose.bind(this)}
             handleCircleClick = {this.handleCircleClick.bind(this)}
             selectedStyle = {this.state.selectedStyle}

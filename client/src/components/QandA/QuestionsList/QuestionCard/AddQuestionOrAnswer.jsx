@@ -19,7 +19,7 @@ const AddQuestionOrAnswer = ({ questionOrProduct_id, product_name, usage, onAorQ
         questionOrProduct_id={questionOrProduct_id} onAorQAddition={onAorQAddition}
       />;
   } else {
-    displayElement = <button onClick={openModal}>Add a Question +</button>;
+    displayElement = <button className='QA-add-question-btn' onClick={openModal}>Add a Question +</button>;
     component =
       <Modal
         setShowModal={setShowModal} usage={usage} product_name={product_name}

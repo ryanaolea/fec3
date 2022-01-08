@@ -13,7 +13,10 @@ class Related extends React.Component {
         relatedClickHandler = {this.props.relatedClickHandler}
         product_Id = {this.props.product_Id}
         mainProductName = {this.props.product_name}/>
-      <YourOutfit />
+      <YourOutfit
+        outfit = {this.props.outfit}
+        addToOutfit = {this.props.addToOutfit}
+      />
     </div>);
   }
 }

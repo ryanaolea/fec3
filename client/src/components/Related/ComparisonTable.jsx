@@ -26,7 +26,7 @@ const ComparisonTable = (props) => {
         <tr>
           <th>{props.mainProductName}</th>
           <th>Feature</th>
-          <th>Comparison Product</th>
+          <th>{props.comparisonProductName}</th>
         </tr>
       </thead>
       <tbody>

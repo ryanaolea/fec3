@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  z-index: 1;
+  z-index: 0;
 }
 .title-navbar {
   align-items: center;
@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   width: 80%;
-  z-index: 1;
+  z-index: 0;
 }
 .navbar-links a {
   float: right;
@@ -50,15 +50,12 @@
   object-fit: cover;
   cursor: zoom-in;
 }
-
 .expanded-image.zoom-view {
   /* background-size: 250%; */
   width: 2000px;
   height: 1250px;
   cursor: zoom-out;
-
 }
-
 .fa-times {
   position: absolute;
   top: 55px;
@@ -66,72 +63,50 @@
   color: pink;
   cursor: pointer;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-
-
 }
-
 .fa-times:hover {
  color:white
-
 }
-
 .fa-circle {
   color:pink;
   margin-right: 10px;
   cursor: pointer;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-
-
 }
-
 .fa-circle.clickedCircle {
   color: white
 }
-
 .fa-circle:hover {
   color:white;
-
 }
-
 #circles {
   position: absolute;
   left: 35%;
   top: 15%
 }
-
 .left-arrow-expanded {
   position: absolute;
   color: pink;
   bottom: 50%;
   left: 15px;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-
 }
-
-
 #expanded-image-container {
-
   position: relative;
 }
-
 .right-arrow-expanded {
   position: absolute;
   color: pink;
   bottom: 50%;
   right: 15px;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-
 }
-
-
-
 .expanded-view-container {
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
 }
-
 .modal {
   position: fixed;
   top: 0;
@@ -140,7 +115,6 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
 }
-
 .modal-main {
   position:fixed;
   background: transparent;
@@ -151,134 +125,87 @@
   transform: translate(-50%,-50%);
 
 }
-
 .display-block {
   display: block;
 }
-
 .display-none {
   display: none;
 }
-
 .slider-thumbnail {
   width: 65px;
   height: 65px;
   object-fit: cover;
   margin-top: 10px;
   opacity: .6;
-
 }
-
 .slider-thumbnail.active-thumbnail {
   opacity: 1
 }
-
-
-
 .slider-thumbnail:hover {
   opacity: 1;
 }
-
 .slider-container {
   margin-left: 30px;
   display: flex;;
   margin-bottom: 20px;
 }
-
 #added-to-cart {
   color: green;
 }
-
 #sale-price-overview {
   color:red;
-
 }
-
 #sale-price-overview-strikethrough {
   text-decoration: line-through;
-
 }
-
 .main-image-container {
   display: flex;
 }
-
 .left-arrow {
   margin-top: 25%;
   margin-right: 10px;
-
 }
-
-
 .right-arrow-slider {
   margin-top: 25px;
   margin-left: 5px;
   color: turquoise
-
-
-
-
 }
-
 .left-arrow-slider {
   margin-top: 25px;
   margin-right: 5px;
   color: turquoise
-
 }
-
 #main-image {
   width: 500px;
   height: 400px;
   object-fit: cover;
   cursor: pointer;
 }
-
-
-
 .fa-angle-left:hover {
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   color: rgb(253, 141, 159);
   cursor: pointer;
-
-
-
 }
-
 .fa-angle-right:hover {
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   color: rgb(253, 141, 159);
   cursor: pointer;
-
-
 }
-
-
 .right-arrow {
   margin-top: 25%;
   margin-left: 10px;
-
-
 }
-
 .overview-container {
   margin-left: 20%;
   display: flex;
   justify-content: flex-start;
   column-gap: 100px;
-
 }
-
-
-
 #main-image {
   width: 500px;
   height: 400px;
   object-fit: cover;
-
 }
-
-
 .thumbnail-image {
   cursor: pointer;
 	margin-right: 5px;
@@ -290,29 +217,21 @@
   width:  100px;
   height: 100px;
   object-fit: cover;
-
 }
-
-
-
 .thumbnail-image:hover {
   background-color: pink;
   opacity: .5;
 }
-
 #product-description-container {
   margin-left: 25%;
 }
-
 #product-description {
   max-width: 40%;
   font-size: larger;
 }
-
 .pink {
   color: pink;
 }
-
 .fa-check {
   position: absolute;
   width:100px;
@@ -320,125 +239,91 @@
   top: 10px;
   left: 40px;
 }
-
 div #styles-container {
   display: flex;
   justify-content: flex-start;
 }
-
-
 div #image-container {
   position: relative;
   width: 50px;
   margin-right: 15px;
   margin-top: -30px;
-
-
 }
-
-
 div #image-container {
   position: relative;
   width: 50px;
   margin-right: 15px;
 }
-
-
 #checkmark {
 	position: absolute;
 }
-
 #img-container {
 	display: flex;
 	justify-content: flex-start;
 }
-
 #gray {
   width: 50px;
   border-radius: 90%;
   margin-right: 15px;
 }
-
 #styles-container {
   display: flex;
   flex-wrap: wrap;
   width: 300px;
 }
-
 #product-name-overview {
   font-weight: bold;
   font-size: xx-large;
 }
-
 #selected-style {
   font-weight: bold;
   padding-bottom: 10px;
   font-size: larger;
   margin-bottom: 20px;
   margin-top: 10px;
-
 }
-
 #product-slogan {
   font-weight: bold;
   font-size: 25px;
   margin-bottom: -5px;
   margin-top: -5px
 }
-
-
 #category-overview {
   font-family: 'Raleway', sans-serif;
-
 }
-
 #reviews-overview {
   font-size: small;
   text-decoration: underline;
   color: #007185;
 }
-
 #reviews-overview:hover {
   color: rgb(253, 141, 159);
 }
-
-
 #atc-container {
   margin-top: 5px;
- }
-
-
-
+}
 #atc {
   color: red;
   font-size: 16px;
   font-weight: 600;
 }
-
 #atc-text-container {
   display: flex;
   margin-top: 10px;
   margin-left: 45%
 }
-
-
 #star {
   width: 25px;
 }
-
-
 img.quarter{
   height: 75px;
 }
-
-
 .star {
   display: inline-block;
   position: relative;
   font-size: 100px;
   color: #ddd;
 }
-
 .star::after {
   font-family: FontAwesome;
   content: "\f005";
@@ -449,38 +334,27 @@ img.quarter{
   overflow: hidden;
   color: #f80;
 }
-
 .fab {
   margin-left: 25px;
 }
-
 #social-container {
   display: flex;
   margin-top: 15px;
   justify-content: center;
   margin-right: 45px;
 }
-
 .fa-facebook {
   color: #3b5998;
   cursor: pointer;
-
 }
-
 .fa-twitter {
   color: #00acee;
   cursor: pointer;
-
 }
-
 .fa-pinterest {
   color: #E60023;
   cursor: pointer;
-
 }
-
-
-
 
 .ATCButton {
   background-color: pink;
@@ -503,18 +377,14 @@ img.quarter{
   touch-action: manipulation;
   width: 100px;
 }
-
 .ATCButton:hover {
   background-color: rgb(255, 173, 186);
 }
-
 .ATCButton:focus {
   border-color: #008296;
   box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
   outline: 0;
 }
-
-
 
 .select-dropdown {
   position: relative;
@@ -561,6 +431,7 @@ html {
   background-size:auto;
   font-family: 'Raleway', sans-serif;
 }
+
 
 /* Related Products Styles */
 
@@ -675,30 +546,47 @@ input.QA-search-bar {
   background: rgba(0, 0, 0, 0.7);
 }
 .QA-modal-content {
-  z-index: 1;
-  width: 35%;
-  height: 70%;
-  background: white;
-  padding: 5px 10px;
-  /* display: flex;
+  border-radius: 8px;
+  font-family: 'Raleway', sans-serif;
+  background-image: linear-gradient(0, rgba(168, 227, 245, .95), rgba(245, 189, 242, 0.95));
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  flex-shrink: auto;
+  padding: 20px;
+  justify-content: center;
   align-items: center;
-  justify-content: center; */
-  border-radius: 5px;
-  position: relative;
-  animation: animate 0.3s;
 }
-.QA-modal-content .QA-Modal-X-btn {
+.QA-modal-X-btn {
   position: absolute;
   top: 5px;
   right: 5px;
-  padding: 3px 5px;
+  padding: 8px 11px;
   background: crimson;
   color: white;
   font-weight: bold;
-  /* border: none;
+  border: none;
   outline: none;
-  border-radius: 2px; */
+  border-radius: 2px;
   cursor: pointer;
+}
+.QA-modal-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 1%;
+  margin-top: 1%
+}
+.QA-modal-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+#QA-modal-previews img {
+  border: 2px solid rgb(2, 2, 2);
+  margin-left: 2px;
+  margin-right: 2px;
 }
 #QA-modal-disclaimer {
   font-size: smaller;
@@ -714,10 +602,10 @@ input.QA-search-bar {
 
 /* ---------- QUESTIONSLIST ---------- */
 #QA-questions-container {
-  /* border: 1px solid black;
-  border-radius: 1rem; */
-  font-size: 16px;
-  max-height: 70vh;
+  border: 1px solid rgb(129, 68, 68);
+  border-radius: 1rem;
+  font-size: 18px;
+  max-height: 65vh;
   max-width: 70vw;
   overflow-y: scroll;
   margin: 1.5rem auto 2rem;
@@ -729,9 +617,14 @@ input.QA-search-bar {
   /* max-width: 100vh; */
   margin: auto 2rem;
 }
+#QA-questions-container hr {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  border-style: inset;
+  width: 60%
+}
 .QA-question-card-question {
-  /* background-color: burlywood; */
-  border: outset;
+  /* border: outset; */
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
@@ -786,11 +679,38 @@ input.QA-search-bar {
   justify-content: center;
   margin-bottom: 1rem;
 }
+.QA-card-btn-see, .QA-card-btn-collapse, #QA-q-display-btn, .QA-add-question-btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #131212;
+  border-radius: 0.4em;
+  color: #131111;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  margin: 10px 20px 20px;
+  padding: 0.5rem;
+  text-decoration: none;
+  text-align: center;
+  /* text-transform: uppercase; */
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.QA-card-btn-see:hover, .QA-card-btn-collapse:hover, #QA-q-display-btn:hover, .QA-add-question-btn:hover {
+  color: #fff;
+  box-shadow: 0 0 40px 40px #421510 inset;
+  outline: 0;
+}
 
 /* ---------- Questions Buttons ---------- */
-#QA-q-display-btn {
+/* #QA-q-display-btn {
   display: inline-block;
-}
+} */
 
 /* Ratings & Reviews Styles */
 
@@ -1091,7 +1011,7 @@ div.sorted-drop-down label {
   background: rgba(0, 0, 0, 0.7);
 }
 .form-modal-container .form-modal {
-  z-index: 1;
+  z-index: 2;
   width:auto;
   height:75%;
   /* background: white; */

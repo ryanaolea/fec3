@@ -70,7 +70,7 @@ const ProductCard = (props) => {
         <StarsTile stars ={starAverage} />
       </div>
       <button onClick={openComparisonModal}>Compare Features</button>
-      {showModal ? <ComparisonModal setShowModal={setShowModal} mainProductName = {props.mainProductName} mainFeatures = {props.mainFeatures} comparisonFeatures = {features} closeModal = {closeModal}/> : null}
+      {showModal ? <ComparisonModal setShowModal={setShowModal} mainProductName = {props.mainProductName} mainFeatures = {props.mainFeatures} comparisonProductName = {item.name} comparisonFeatures = {features} closeModal = {closeModal}/> : null}
     </div>);
 };
 

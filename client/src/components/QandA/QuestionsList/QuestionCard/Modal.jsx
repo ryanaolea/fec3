@@ -8,7 +8,6 @@ const cloudinary_url = 'https://api.cloudinary.com/v1_1/flightfulkiwi/image/uplo
 const cloudinary_preset = 'fec_preset';
 
 let title;
-let subtitle;
 let title_body;
 let buttonText;
 let imageErrorMsg = 'Sorry! Maximum number of images (5) exceeded.';
@@ -33,12 +32,10 @@ const Modal = ({ setShowModal, usage, product_name, questionOrProduct_id, onAorQ
   // Determines displayed text based on whether Q or A
   if (usage === 'addAnswer') {
     title = 'Submit your answer';
-    subtitle = `${product_name}:`;
     title_body = 'Your Answer';
     buttonText = 'Submit Answer';
   } else {
-    title = 'Ask Your Question';
-    subtitle = `About the ${product_name}:`;
+    title = 'Ask your question';
     title_body = 'Your Question';
     buttonText = 'Submit Question';
   }
@@ -52,7 +49,7 @@ const Modal = ({ setShowModal, usage, product_name, questionOrProduct_id, onAorQ
 
     setImages(prevImages => [...filesArray, ...prevImages]);
 
-    const previewDIV = document.getElementById('QA-Modal-previews');
+    const previewDIV = document.getElementById('QA-modal-previews');
     // while (previewDIV.firstChild) {
     //   previewDIV.removeChild(previewDIV.lastChild);
     // }
@@ -131,8 +128,8 @@ const Modal = ({ setShowModal, usage, product_name, questionOrProduct_id, onAorQ
   return ReactDom.createPortal(
     <div className='QA-modal-container' ref={modalRef} onClick={closeModal}>
       <div className='QA-modal-content'>
-        <h3>{title}</h3>
-        <h4>{subtitle}</h4>
+        <h3 className='QA-modal-title'>{title}</h3>
+        <h4 className='QA-modal-subtitle'>About the {product_name}</h4>
         <form onSubmit={handleSubmit}>
           <label htmlFor='QA-modal-body'>{title_body}<span className='QA-modal-required-input'> *</span></label><br/>
           <textarea
@@ -180,19 +177,19 @@ const Modal = ({ setShowModal, usage, product_name, questionOrProduct_id, onAorQ
                   />
                   }
                   <br/>
-                  <div id='QA-Modal-previews'></div>
+                  <br/>
+                  <div id='QA-modal-previews'></div>
                 </div>
             }
           </>
           }
 
           <br/>
-          <br/>
 
           <input type='submit' value={buttonText} className='QA-modal-submit-btn' />
         </form>
 
-        <button className='QA-Modal-X-btn'
+        <button className='QA-modal-X-btn'
           onClick={ () => setShowModal(false) }
         >X</button>
       </div>

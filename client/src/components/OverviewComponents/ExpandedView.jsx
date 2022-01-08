@@ -9,9 +9,30 @@ class ExpandedView extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      zoomView: null
+      zoomView: null,
+      imageURL: null
     };
   }
+
+  // componentWillUpdate() {
+
+  //   if (this.props.images) {
+  //     this.setState({imageURL: this.props.images[Number(this.props.selectedStyle)][this.state.currentIndex].url});
+  //   }
+
+
+  // }
+
+  // componentWillUpdate() {
+
+  //   if (this.props.images) {
+  //     this.setState({imageURL: this.props.images[Number(this.props.selectedStyle)][this.state.currentIndex].url});
+  //   }
+
+
+  // }
+
+
 
   handleLeftArrowExpanded() {
     var length = this.props.images[Number(this.props.selectedStyle)].length;
@@ -46,9 +67,7 @@ class ExpandedView extends React.Component {
 
 
   render () {
-    if (this.props.images) {
 
-    }
 
 
     return ReactDom.createPortal(

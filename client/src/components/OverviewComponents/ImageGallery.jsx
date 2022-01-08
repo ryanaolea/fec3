@@ -16,9 +16,9 @@ class ImageGallery extends React.Component {
 
   handleLeftArrow() {
 
-    if (this.state.currentIndex === 0) {
-      return;
-    }
+    // if (this.state.currentIndex === 0) {
+    //   return;
+    // }
 
     var length = this.props.images[Number(this.props.selectedStyle)].length;
     if (this.state.currentIndex === 0) {
@@ -103,16 +103,17 @@ class ImageGallery extends React.Component {
 
 
 
-
   render () {
     return (
       <>
         <div className = 'main-image-container'>
 
+
+          {/* {this.state.currentIndex === this.props.length - 1 ? '' :
+            <RightArrow handleRightArrow = {this.handleRightArrow.bind(this)}/>} */}
           <LeftArrow className = {this.state.currentIndex === 0 ? 'pink' : ''} handleLeftArrow = {this.handleLeftArrow.bind(this)}/>
           <MainImage showExpandedView = {this.props.showExpandedView} currentIndex = {this.state.currentIndex} selectedStyle = {this.props.selectedStyle} images = {this.props.images}/>
-          {this.state.currentIndex === this.props.length - 1 ? '' :
-            <RightArrow handleRightArrow = {this.handleRightArrow.bind(this)}/>}
+          <RightArrow handleRightArrow = {this.handleRightArrow.bind(this)}/>
         </div>
         <Slider imageRange = {this.state.imageRange} handleLeftArrowSlider = {this.handleLeftArrowSlider.bind(this)} handleRightArrowSlider = {this.handleRightArrowSlider.bind(this)} currentIndex = {this.state.currentIndex} handleSliderThumbnailClick = {this.handleSliderThumbnailClick.bind(this)} selectedStyle = {this.props.selectedStyle} images = {this.props.images}/>
       </>
